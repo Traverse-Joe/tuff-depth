@@ -26,26 +26,10 @@ public class TuffDepth {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, TuffDepthConfig.configSpec);
 
-        MinecraftForge.EVENT_BUS.addListener(this::onMobSpawned);
+        MinecraftForge.EVENT_BUS.addListener(TuffDepthEvents::datapackRegistry);
+        MinecraftForge.EVENT_BUS.addListener(TuffDepthEvents::onMobSpawned);
+        MinecraftForge.EVENT_BUS.addListener(TuffDepthEvents::onEntityAttacked);
         MinecraftForge.EVENT_BUS.register(this);
-    }
-
-    public void onMobSpawned(EntityJoinWorldEvent evt) {
-        if (evt.getEntity().getY() < 0 && evt.getWorld().dimension() == Level.OVERWORLD && !evt.getWorld().isClientSide()) {
-            changeEntityStats(evt.getEntity());
-        }
-    }
-
-    private void changeEntityStats(Entity entity) {
-        if (entity instanceof Mob target) {
-            float targetHealth = (float) (target.getAttributeBaseValue(Attributes.MAX_HEALTH) * TuffDepthConfig.general.healthMultiplier.get());
-            target.getAttribute(Attributes.MAX_HEALTH).setBaseValue(targetHealth);
-            target.setHealth(targetHealth);
-        }
-        if (entity instanceof Monster target) {
-            float targetDamage = (float) (target.getAttributeBaseValue(Attributes.ATTACK_DAMAGE) * TuffDepthConfig.general.damageMultiplier.get());
-            target.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(targetDamage);
-        }
     }
 
 

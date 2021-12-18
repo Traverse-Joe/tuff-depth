@@ -5,11 +5,19 @@ import net.minecraftforge.common.ForgeConfigSpec;
 public class TuffDepthConfig {
 
     public static class General {
+        public final ForgeConfigSpec.ConfigValue<Integer> minYLevel;
+        public final ForgeConfigSpec.ConfigValue<Integer> maxYLevel;
         public final ForgeConfigSpec.ConfigValue<Double> healthMultiplier;
         public final ForgeConfigSpec.ConfigValue<Double> damageMultiplier;
 
         General(ForgeConfigSpec.Builder builder) {
             builder.push("General");
+            minYLevel = builder
+                    .comment("The minimum Y Level the Tuff Spawn Mobs are Effected")
+                    .define("minYLevel", -64);
+            maxYLevel = builder
+                    .comment("The maximum Y Level the Tuff Spawn Mobs are Effected")
+                    .define("maxYLevel", 0);
             healthMultiplier = builder
                     .comment("Health Multiplier for Tuff Depth Spawned Mobs")
                     .define("healthMultiplier", 1.5);
