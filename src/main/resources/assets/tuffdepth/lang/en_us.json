@@ -1,0 +1,7 @@
+{
+  "text.autoconfig.tuffdepth.title": "Tuff Depth Config",
+  "text.autoconfig.tuffdepth.option.minYLevel": "Minimum Y Level",
+  "text.autoconfig.tuffdepth.option.maxYLevel": "Maximum Y Level",
+  "text.autoconfig.tuffdepth.option.healthMultiplier": "Health Multiplier",
+  "text.autoconfig.tuffdepth.option.damageMultiplier": "Damage Multiplier"
+}

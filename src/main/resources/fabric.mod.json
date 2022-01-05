@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "tuffdepth",
+  "version": "${version}",
+  "name": "Tuff Depth",
+  "description": "A Mod to increase the difficulty of the creatures below the depths",
+  "authors": [
+    "Traverse_Joe"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/tuffdepth/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.traverse.tuffdepth.TuffDepth"
+    ],
+    "modmenu": [
+      "com.traverse.tuffdepth.config.ModMenuIntegration"
+    ]
+  },
+  "mixins": [
+    "tuffdepth.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.12.12",
+    "fabric": "*",
+    "minecraft": "1.18.1",
+    "java": ">=17",
+    "cloth-config":">=6.1.48"
+  }
+}
